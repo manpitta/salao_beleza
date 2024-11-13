@@ -33,14 +33,6 @@ public class Cliente {
 
     private boolean aprovado = false;
 
-    public Cliente(Long id, String nome, String email, String senha, boolean aprovado) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.aprovado = aprovado;
-    }
-
     public Long getId() {
         return id;
     }
