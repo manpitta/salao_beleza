@@ -15,12 +15,12 @@ import java.util.List;
 
 public class Fornecedor {
 
-    @Id // indica que o campo é o id da entidade cliente
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // para garantir que o id seja gerado automaticamente para cada cliente
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFornecedor;
 
-    @NotBlank(message = "O nome é obrigatório") // para garantir que um campo de texto (String) não seja nulo nem esteja vazio
-    @Size(min = 2, max = 100, message = "O nome deve ter entre 2 e 100 caracteres") // verifica o comprimento do valor
+    @NotBlank(message = "O nome é obrigatório")
+    @Size(min = 2, max = 100, message = "O nome deve ter entre 2 e 100 caracteres")
     private String nome;
 
     @Email(message = "Email deve ser válido") // para validar se um campo contém um endereço de e-mail válido
