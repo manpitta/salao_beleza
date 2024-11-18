@@ -30,10 +30,4 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
 
     // Método para listar todos os agendamentos
     List<Agendamento> findAll();
-
-    // Método para listar todos os agendamentos de um serviço
-    List<Agendamento> findByServicoId(Long idServico);
-
-    // Método para listar todos os agendamentos de um fornecedor
-    List<Agendamento> findByServicoFornecedoresId(Long idFornecedor);
 }

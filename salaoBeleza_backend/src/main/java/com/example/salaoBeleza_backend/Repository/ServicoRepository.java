@@ -16,9 +16,6 @@ public interface ServicoRepository extends JpaRepository<Servico, Long> {
     // Verifica se já existe um serviço com o nome fornecido
     boolean existsByNome(String nome);
 
-    // Método para encontrar todos os serviços de um fornecedor
-    List<Servico> findByServicosIdFornecedor(Long idFornecedor);
-
     // Método para excluir um serviço pelo nome
     void deleteByNome(String nome);
 
