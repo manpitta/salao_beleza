@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -24,6 +25,10 @@ public class Cliente {
     @NotBlank(message = "O nome é obrigatório") // para garantir que um campo de texto (String) não seja nulo nem esteja vazio
     @Size(min = 2, max = 100, message = "O nome deve ter entre 2 e 100 caracteres") // verifica o comprimento do valor
     private String nome;
+
+    @NotBlank(message = "O CPF é obrigatório")
+    @Pattern(regexp = "\\d{11}", message = "O CPF deve conter exatamente 11 dígitos")
+    private String cpf;
 
     @Email(message = "Email deve ser válido") // para validar se um campo contém um endereço de e-mail válido
     @NotBlank(message = "O email é obrigatório")
@@ -74,4 +79,8 @@ public class Cliente {
     public void setAprovado(boolean aprovado) {
         this.aprovado = aprovado;
     }
+
+    public String getCpf() { return cpf; }
+
+    public void setCpf(String cpf) { this.cpf = cpf; }
 }

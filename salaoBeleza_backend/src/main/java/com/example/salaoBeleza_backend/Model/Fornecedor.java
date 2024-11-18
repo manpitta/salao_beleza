@@ -3,6 +3,7 @@ package com.example.salaoBeleza_backend.Model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -22,6 +23,14 @@ public class Fornecedor {
     @NotBlank(message = "O nome é obrigatório")
     @Size(min = 2, max = 100, message = "O nome deve ter entre 2 e 100 caracteres")
     private String nome;
+
+    @NotBlank(message = "CPF ou CNPJ é obrigatório")
+    @Pattern(
+            regexp = "\\d{11}|\\d{14}",
+            message = "O CPF deve conter 11 dígitos ou o CNPJ deve conter 14 dígitos"
+    )
+    @Column(unique = true)
+    private String cpfOuCnpj;
 
     @Email(message = "Email deve ser válido") // para validar se um campo contém um endereço de e-mail válido
     @NotBlank(message = "O email é obrigatório")
@@ -65,6 +74,10 @@ public class Fornecedor {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public String getCpfOuCnpj() { return cpfOuCnpj; }
+
+    public void setCpfOuCnpj(String cpfOuCnpj) { this.cpfOuCnpj = cpfOuCnpj; }
 
     public List<Servico> getListaDeServicos() {
         return listaDeServicos;
